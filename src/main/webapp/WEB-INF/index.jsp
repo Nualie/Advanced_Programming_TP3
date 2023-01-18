@@ -11,6 +11,10 @@
     <title>Index</title>
 </head>
 <body>
-
+<form name="frm_index" action="">
+    <label>Login : </label><input type="text" name="loginForm" /><br />
+    <label>Password : </label><input type="text" name="passForm" /><br />
+    <input type="submit" name="btn_Send" value="Send" />
+</form>
 </body>
 </html>
