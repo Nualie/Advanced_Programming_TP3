@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.apr2023.ctrl;
+package tp2;
 
-import com.apr2023.model.DBActions;
-import com.apr2023.utils.TextConstants;
+import tp2.DBActions;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;

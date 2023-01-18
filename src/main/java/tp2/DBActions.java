@@ -1,17 +1,15 @@
-package com.apr2023.model;
+package tp2;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import static com.apr2023.utils.TextConstants.QUERY_SELECT_ALL_EMPLOYEES;
+import static tp2.TextConstants.QUERY_SELECT_ALL_EMPLOYEES;
 
 /**
  *
  * @author JAA
  */
 public class DBActions {
-    //TODO correct level of encapsulation ?DONE
-    //TODO initialization not required ?DONE
     private Connection conn;
     private Statement statement;
     private ResultSet queryResult;
@@ -19,8 +17,7 @@ public class DBActions {
     public DBActions(String dbUrl, String dbUser, String dbPwd) {
         try {
             conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
-        } catch (SQLException sqle) { //TODO why not just catch Exception e ? it's more specificDONE
-                //TODO add error codeDONE
+        } catch (SQLException sqle) {
             System.out.println(sqle.getMessage());
             System.out.println(sqle.getStackTrace());
         }
@@ -29,12 +26,8 @@ public class DBActions {
 
     private Statement getStatement() {
         try {
-            statement = conn.createStatement(); // TODO DONE
-                                                // createStatement is declared in an interface (Connection).
-                                                // So why is this possible?
-                                                //it's an instance
-        } catch (SQLException sqle) { //TODO why not just catch Exception e ?DONE
-            //TODO add error codeDONE
+            statement = conn.createStatement();
+        } catch (SQLException sqle) {
             System.out.println(sqle.getErrorCode());
         }
         return statement;
@@ -45,8 +38,7 @@ public class DBActions {
         statement = getStatement();
         try {
             queryResult = statement.executeQuery(query);
-        } catch (SQLException sqle) { //TODO why not just catch Exception e ?DONE
-            //TODO add error codeDONE
+        } catch (SQLException sqle) {
             System.out.println(sqle.getErrorCode());
         }
         return queryResult;
@@ -54,7 +46,7 @@ public class DBActions {
     }
 
     public ArrayList<Employee> getEmployees() {
-        ArrayList<Employee> Employees = new ArrayList<>();  //TODO local vs global variableDONE
+        ArrayList<Employee> Employees = new ArrayList<>();
         queryResult = getResultSet(QUERY_SELECT_ALL_EMPLOYEES);
         try {
             while (queryResult.next()) {
@@ -63,12 +55,10 @@ public class DBActions {
                 oneSingleEmployee.setLastName(queryResult.getString("LASTNAME"));
                 oneSingleEmployee.setEmail(queryResult.getString("EMAIL"));
                 oneSingleEmployee.setCity(queryResult.getString("CITY"));
-                //TODO add code to retrieve the last name, the email and the cityDONE
 
                 Employees.add(oneSingleEmployee);
             }
-        } catch (SQLException sqle) { //TODO why not just catch Exception e ?DONE
-            //TODO add error codeDONE
+        } catch (SQLException sqle) {
             System.out.println(sqle.getMessage());
         }
         return Employees;

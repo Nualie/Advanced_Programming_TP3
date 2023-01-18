@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.apr2023.model;
+package tp2;
 
 /**
  *
