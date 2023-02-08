@@ -1,0 +1,7 @@
+JDBC-----------------------------------> JPA
+Connection/Statement/ResultSet---------> X
+db.properties--------------------------> persistence.xml
+x--------------------------------------> Session Bean
+Employee(Java Bean)--------------------> EmployeeEntity
+try/catch(SQLException)----------------> X
+SQL------------------------------------> JPQL
